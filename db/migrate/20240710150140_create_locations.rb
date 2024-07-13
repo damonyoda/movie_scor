@@ -1,8 +1,8 @@
 class CreateLocations < ActiveRecord::Migration[7.0]
   def change
     create_table :locations do |t|
-      t.string :name
-      t.string :country
+      t.string :name, null:false, default: ""
+      t.string :country, null:false, default: ""
 
       t.timestamps
     end
