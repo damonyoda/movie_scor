@@ -15,15 +15,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_123710) do
   enable_extension "plpgsql"
 
   create_table "actors", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_actors_on_name", unique: true
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.string "country"
+    t.string "name", default: "", null: false
+    t.string "country", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name", "country"], name: "index_locations_on_name_and_country", unique: true
@@ -42,10 +42,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_123710) do
   end
 
   create_table "movies", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "description", null: false
+    t.string "name", default: "", null: false
+    t.text "description", default: "", null: false
     t.integer "year", null: false
-    t.string "director", null: false
+    t.string "director", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
