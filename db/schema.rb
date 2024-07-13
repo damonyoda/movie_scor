@@ -57,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_123710) do
     t.text "review", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["movie_id", "user"], name: "index_reviews_on_movie_id_and_user", unique: true
     t.index ["movie_id"], name: "index_reviews_on_movie_id"
   end
 
