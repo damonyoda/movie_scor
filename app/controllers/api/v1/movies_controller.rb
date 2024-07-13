@@ -6,7 +6,7 @@ class Api::V1::MoviesController < ApplicationController
               .includes(:actors, :locations)
               .group('movies.id')
               .select('movies.*, AVG(reviews.stars) as average_rating')
-              .order(Arel.sql("AVG(reviews.stars) #{sort} NULLS LAST"))
+              .order("average_rating #{sort} NULLS LAST")
 
     render json: @movies, include: [:actors, :locations]
   end

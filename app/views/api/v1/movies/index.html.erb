@@ -1,2 +1,31 @@
-<h1>Api::V1::Movies#index</h1>
-<p>Find me in app/views/api/v1/movies/index.html.erb</p>
+
+<h1>Movies</h1>
+
+<%= form_with url: search_api_v1_movies_path, method: :get, local: true do |f| %>
+  <%= f.label :actor, "Search for actor:" %>
+  <%= f.text_field :actor %>
+  <%= f.submit "Search" %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Director</th>
+      <th>Actor</th>
+      <th>Average Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.name %></td>
+        <td><%= movie.year %></td>
+        <td><%= movie.director %></td>
+        <td><%= movie.actors.map(&:name).join(', ') %></td>
+        <td><%= movie.average_rating.round(2) if movie.average_rating %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
