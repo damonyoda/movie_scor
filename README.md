@@ -8,6 +8,8 @@ movie_db
 - run "bundle install" to install all dependancies 
 
 - run "rails db:create" to create movie_db database
+- run "rails db:migrate" for all migration
+- run "rails import:data" to start inject csv to database
 
 - run "rspec" to run through all the test
 
