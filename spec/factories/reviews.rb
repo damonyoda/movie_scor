@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :review do
-    user { "User 1" }
+    sequence(:user) { |n| "User #{n}" }
     association :movie, factory: :movie
   end
 end
