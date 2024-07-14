@@ -13,12 +13,12 @@ class Api::V1::MoviesController < ApplicationController
 
   def show
     @movie = Movie.includes(:reviews, :actors, :locations).find_by(id: params[:id])
-    render json: @movie, include: [:actors, :locations]
+    render json: @movie, methods: :average_rating, include: [:actors, :locations]
   end
 
   def search
     @actor = Actor.find_by("name ILIKE ?", "%#{params[:actor]}%")
     @movies = @actor ? @actor.movies : []
-    render json: @movies, include: [:actors, :locations]
+    render json: @movies, methods: :average_rating, include: [:actors, :locations]
   end
 end

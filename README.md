@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+movie_db
 
-Things you may want to cover:
+* Ruby version => 3.2.2
 
-* Ruby version
+- run "bundle install" to install all dependancies 
 
-* System dependencies
+- run "rails db:create" to create movie_db database
 
-* Configuration
+- run rspec to run through all the test
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
